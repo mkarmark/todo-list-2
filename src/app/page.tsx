@@ -22,7 +22,7 @@ async function fetchTodos(): Promise<Todo[]> {
   });
   const data = await res.json();
   if (!data.keyValuePairs) return [];
-  return Object.entries(data.keyValuePairs).map(([id, text]: [string, any]) => ({ id, text: String(text) }));
+  return Object.entries(data.keyValuePairs).map(([id, text]: [string, unknown]) => ({ id, text: String(text) }));
 }
 
 async function addTodo(text: string): Promise<Todo> {
